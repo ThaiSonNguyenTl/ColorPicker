@@ -1,0 +1,10 @@
+<div class="card">
+  <h5 class="card-header   bg-warning">Color Picker</h5>
+  <div class="card-body">
+    <ng-container *ngFor="let color of colors; let i = index">
+      <button class="btn  btn-lg" [style.background-color]="color" (click) = "SendColor(color)"> </button> &nbsp;
+      <hr *ngIf = "i != 0 && i % 7 == 0" />
+    </ng-container>
+      <hr/>
+  </div>
+</div>

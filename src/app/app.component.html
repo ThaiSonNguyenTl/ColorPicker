@@ -1,0 +1,15 @@
+<div class="container mt-50">
+  <div class = "row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <app-color-picker (outColor) ="getColor($event)"></app-color-picker>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <app-size-setting [sizeDefault] = "fontSizeDefault" (sizeUpdate) = "getSizeUpdate($event)"></app-size-setting><br/>
+      <app-reset (resetInitial) = "getResetInitial()"></app-reset>
+    </div>
+    <h3 [style.color] ="colorDefault">Color: {{colorDefault}} - FontSize: {{fontSizeDefault}}</h3>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <app-result [color] = "colorDefault" [size] = "fontSizeDefault" ></app-result>
+    </div>
+  </div>
+</div>
