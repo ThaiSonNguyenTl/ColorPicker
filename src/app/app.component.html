@@ -1,15 +1,58 @@
 <div class="container mt-50">
-  <div class = "row">
+  <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <app-color-picker (outColor) ="getColor($event)"></app-color-picker>
+      <app-color-picker (outColor)="getColor($event)"></app-color-picker>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <app-size-setting [sizeDefault] = "fontSizeDefault" (sizeUpdate) = "getSizeUpdate($event)"></app-size-setting><br/>
-      <app-reset (resetInitial) = "getResetInitial()"></app-reset>
+      <app-size-setting [sizeDefault]="fontSizeDefault" (sizeUpdate)="getSizeUpdate($event)"></app-size-setting><br />
+      <app-reset (resetInitial)="getResetInitial()"></app-reset>
     </div>
-    <h3 [style.color] ="colorDefault">Color: {{colorDefault}} - FontSize: {{fontSizeDefault}}</h3>
+    <h3 [style.color]="colorDefault">Color: {{colorDefault}} - FontSize: {{fontSizeDefault}}</h3>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <app-result [color] = "colorDefault" [size] = "fontSizeDefault" ></app-result>
+      <app-result [color]="colorDefault" [size]="fontSizeDefault"></app-result>
     </div>
   </div>
+  <hr [ngStyle]="{border:'2px purple solid'}">
+  <hr [ngStyle]="{border:'2px purple solid'}">
+  <h2>Pipes</h2>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Input</th>
+        <th>Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <h4> {{arrNumber}}</h4>
+          <button type="button" class="btn btn-warning" (click)="Decrease(-1)">Decrease</button>&nbsp;
+          <button type="button" class="btn btn-danger" (click)="Increase(1)">Increase</button>
+        </td>
+        <td>
+          <p>{{sortValue === -1? 'Decrease': 'Increase'}}</p>
+          {{arrNumber| sortNumber : sortValue}}
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr [ngStyle]="{border:'2px back solid'}">
+  <hr [ngStyle]="{border:'2px blue solid'}">
+  <table class="table">
+    <thead class=" table-primary">
+      <tr>
+        <th>ID</th>
+        <th (click) = "onSort('name')"> Products</th>
+        <th (click) = "onSort('price')">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productsArr|sort:sortBy:sortPrice; let i = index">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price | currency: 'USD': true :'1.0-3'}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

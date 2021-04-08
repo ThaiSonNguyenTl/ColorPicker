@@ -7,6 +7,8 @@ import { ColorPickerComponent } from './components/color-picker/color-picker.com
 import { ResetComponent } from './components/reset/reset.component';
 import { ResultComponent } from './components/result/result.component';
 import { SizeSettingComponent } from './components/size-setting/size-setting.component';
+import { SortNumberPipe } from './pipes/sort-number.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { SizeSettingComponent } from './components/size-setting/size-setting.com
     ColorPickerComponent,
     ResetComponent,
     ResultComponent,
-    SizeSettingComponent
+    SizeSettingComponent,
+    SortNumberPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
